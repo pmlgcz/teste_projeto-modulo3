@@ -7,13 +7,13 @@ Modal.setAppElement("#root");
 
 export default function ListItems({
   img,
-  nomeFilme,
-  anoFilme,
+  nomeSerie,
+  anoSerie,
   id,
-  sinopseFilme,
-  roteiroFilme,
+  sinopseSerie,
+  criadoPor,
 }) {
-  // Modal de Informações //
+  //Informação//
   const [modalAberto, SetModalAberto] = useState(false);
 
   function openModal() {
@@ -24,7 +24,7 @@ export default function ListItems({
     SetModalAberto(false);
   }
 
-  // Modal de Edição //
+  //Edição//
     const [modalEditar, SetModalEditar] = useState(false);
 
     function openModalE() {
@@ -35,37 +35,37 @@ export default function ListItems({
       SetModalEditar(false);
     }
 
-  //Parte para deletar o filme  //
+  // Deletar //
 
   function deletar(id) {
-    if (!confirm(`Realmente deseja deletar o filme "${nomeFilme}"?`)) {
+    if (!confirm(`Realmente deseja deletar a serie "${nomeSerie}"? `)) {
     } else {
-      fetch(`https://json-server-m3-8rj7.onrender.com/filmes/${id}`, {
+      fetch('https://projetoindividual-pamelam3.onrender.com/proximosLancamentos/${id}`, {
         method: "DELETE",
       }).then((result) => {
         result.json().then((resp) => {
           console.warn(resp);
         });
       });
-      alert(`Filme "${nomeFilme}" deletado com sucesso! Recarregue a página.`);
+      alert(`Serie "${nomeSerie}" Serie deletada com sucesso!`);
     }
   }
 
 
-  // Parte para editar o filme //
+  // Edição //
 
-  const [titulo, setTitulo] = useState(nomeFilme)
+  const [titulo, setTitulo] = useState(nomeSerie)
   const [ano, setAno] = useState("")
-  const [roteiro, setRoteiro] = useState("")
+  const [sinopse, setSinopse] = useState("")
   const [imagem, setImagem] = useState("")
 
 
   const updateFilme = async(e) => {
     e.preventDefault();
-    await API.put(`/filmes/${id}`,{
+    await API.put(`/series/${id}`,{
         titulo: titulo,
         imagem: imagem,
-        roteiro: roteiro,
+        sinopse: sinopse,
         ano: ano,
     })
 }
@@ -76,7 +76,7 @@ export default function ListItems({
       <li id="liHome">
         <img src={img} alt="" />
         <p>
-          {nomeFilme}
+          {nomeSerie}
         </p>
 
 
@@ -91,15 +91,15 @@ export default function ListItems({
             overlayClassName="modal-overlay"
             className="modal-content"
           >
-            <h2 className="titulo-modal"> {nomeFilme}</h2>
+            <h2 className="titulo-modal"> {nomeSerie}</h2>
             <hr></hr>
 
             <div className="infos-modal">
               <img src={img} alt="" />
-              <p>{sinopseFilme}</p>
+              <p>{sinopseSerie}</p>
             </div>
-            <p className="info-extra">Ano de lançamento: {anoFilme} </p>
-            <p className="info-extra">Roteiro: {roteiroFilme} </p>
+            <p className="info-extra">Ano de lançamento: {anoSerie} </p>
+            <p className="info-extra">Sinopse: {sinopseSerie} </p>
             <hr></hr>
 
             <button className="button-close" onClick={closeModal}>
@@ -120,39 +120,39 @@ export default function ListItems({
             overlayClassName="modal-overlay"
             className="modal-content"
           >
-            <h2>Editar o filme {nomeFilme}</h2>
+            <h2>Editar serie {nomeSerie}</h2>
             <hr/>
             <div className="containereditar">
             <form className="formularioeditar">
               <div>
-                <label htmlFor="titulo">Título do filme:</label>
+                <label htmlFor="titulo">Título da serie:</label>
                 <input type="text" value={titulo} onChange={(e)=>setTitulo(e.target.value)}/>
               </div>
               <div>
-                <label htmlFor="ano">Data de lançamento:</label>
+                <label htmlFor="ano">Lnçamento:</label>
                 <input
                   type="number"
                   required
-                  min={1900}
-                  max={2022}
+                  min={2022}
+                  max={2023}
                   maxLength={4}
                   minLength={4}
                   name="ano"
-                  placeholder={anoFilme}
+                  placeholder={anoSerie}
                   id="ano"
                   value={ano}
                   onChange={(e)=>setAno(e.target.value)}
                 />
               </div>
               <div>
-                <label htmlFor="roteiro">Roteiro:</label>
+                <label htmlFor="sinopse">Sinopse:</label>
                 <input
                   type="text"
                   required
-                  name="roteiro"
-                  placeholder={roteiroFilme}
-                  id="roteiro"
-                  value={roteiro}
+                  name="sinopse"
+                  placeholder={sinopseSerie}
+                  id="sinopse"
+                  value={sinopse}
                   onChange={(e)=>setRoteiro(e.target.value)}
                 />
               </div>
@@ -172,7 +172,7 @@ export default function ListItems({
             </form>
             </div>
             <hr></hr>
-            <button className="btneditar" onClick={updateFilme} value="Editar filme" >Editar filme</button>
+            <button className="btneditar" onClick={updateSerie} value="Editar serie" >Editar serie</button>
             <button className="button-close" onClick={closeModalE}>
               Fechar{" "}
             </button>
