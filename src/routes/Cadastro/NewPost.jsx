@@ -8,10 +8,10 @@ export default function NewPost() {
 
     const navigate = useNavigate()
 
-    const [titulo, setTitle] = useState()
-    const [ano, setAno] = useState()
     const [nome, setNome] = useState()
     const [email, setEmail] = useState()
+    const [telefone, setTelefone] = useState()
+    const [nascimento, setNascimento] = useState()
 
     
     const createPost = async(e) => {
@@ -22,7 +22,7 @@ export default function NewPost() {
             telefone: telefone,
             nascimento: nascimento,
         })
-        alert(`Cadastro "${titulo}" cadastrado com sucesso!`)
+        alert(`Cadastro "${cadastro}" cadastrado com sucesso!`)
     }
 
     return(
