@@ -3,25 +3,25 @@ import API from "../../axios/config";
 import ListItems from "../../components/ListItems";
 import Section from "../../components/Section";
 import "./Home.css"
-import EmCartazIMG from '../../images/cinema.png'
+import MaisVistasIMG from '../../images/play.png'
 import LoadingGIF from '../../images/gif-loading.gif'
 
 
 export default function Home() {
 
-  const [filmes, setFilmes] = useState([]);
+  const [series, setSeries] = useState([]);
 
   useEffect(() => {
-    API.get("/filmes")
-    .then(response=>setFilmes(response.data))
+    API.get("/series")
+    .then(response=>setSeries(response.data))
   }, []);
 
 
   return (
     <>
-      <div id="Cartaz">
-        <img src={EmCartazIMG}/>
-        <h2>em cartaz</h2>
+      <div id="MaisVistas">
+        <img src={MaisVistasIMG}/>
+        <h2>Mais vistas</h2>
       </div>
       <Section>
         {filmes.length === 0 ? (
@@ -29,7 +29,7 @@ export default function Home() {
         ) : (
           filmes.map((item) => (
 
-            <ListItems nomeFilme={item.titulo} anoFilme={item.ano} img={item.imagem} id={item.id} roteiroFilme={item.roteiro} sinopseFilme={item.sinopse} />
+            <ListItems nomeSeries={item.titulo} anoSeries={item.ano} img={item.imagem} id={item.id} Sinopse={item.sinopse} />
             
 
           ))
