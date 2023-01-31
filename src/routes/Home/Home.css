@@ -5,18 +5,18 @@ ul{
     flex-wrap: wrap;
     list-style: none;
 }
-#Cartaz{
+#MaisVistas{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     margin-block: 40px 100px;
 }
-#Cartaz h2{
+#MaisVistas h2{
     font-size: 2.2rem;
     text-align: center;
 }
-#Cartaz img{
+#MaisVistas img{
     width: 44px;
     height: 44px;
 }
@@ -27,7 +27,7 @@ img{
     border-radius: 5px;
 }
 
-.ListaFilmes {
+.ListaSeries {
     font-size: 3rem;
     display: flex;
     justify-content: center;
@@ -75,7 +75,7 @@ li img {
     border-radius: 6px;
     border: 2px solid white
 }
-#Cartaz {
+#MaisVistas {
     display: flex;
     align-items: center;
     margin-left: 15px;
@@ -83,13 +83,13 @@ li img {
     margin-block: 50px 30px;
 }
 
-#Cartaz h2{
+#MaisVistas h2{
     font-size: 2.5rem;
     color: white;
     text-transform: uppercase;
 }
 
-#Cartaz img {
+#MaisVistas img {
     width: 44px;
     height: 44px;
     
@@ -110,7 +110,7 @@ li img {
 
 @media (min-width: 992px){
 
-    #Cartaz {
+    #MaisVistas {
         margin-left: 105px;
     }
     li img{
