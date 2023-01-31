@@ -1,4 +1,4 @@
-  import { useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 import "./ModalButton.css"; 
 
@@ -18,7 +18,7 @@ import "./ModalButton.css";
         return (
            
             <div className='container-modal'>
-              <button onClick={openModal}>Mais informações </button> 
+              <button onClick={openModal}>Ver mais </button> 
                <Modal 
                  isOpen={modalAberto}
                  onRequestClose={closeModal}
@@ -26,10 +26,10 @@ import "./ModalButton.css";
                  overlayClassName='modal-overlay'
                  className='modal-content'
                  >  
-                 <h2>Mais informações sobre o {nomeFilme}</h2>
+                 <h2>Mais informações sobre a {NomeDaSerie}</h2>
                  <hr></hr>
                  <p>
-                     {sinopseFilme}
+                     {sinopse}
                  </p>
 
 
