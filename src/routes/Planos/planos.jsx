@@ -2,13 +2,13 @@ import "./Planos.css"
 import { useEffect } from 'react';
 import { useState } from 'react';
 import API from '../../axios/config'
-import PlanosIMG from '../../images/play.png'
+import PlanosIMG from '../../images/cinema.png'
 import Catalogo from "../Catalogo/catalogo";
 
 export default function Planos() {
 
 
-    const [precos, setPreco] = useState([]);
+    const [planos, setPlanos] = useState([]);
 
     useEffect(() => {
         API.get("/planos").then((response) => setPlanos(response.data));
@@ -24,9 +24,9 @@ export default function Planos() {
             <li>
                 {planos.map(function valores(item){
                     return <div>
-                        <p><b> </b> {item. }</p>
-                        <p><b> </b> {item. }</p>
-                        <p><b> </b> {item. }</p>
+                        <p><b> </b> {item.PlanosBásico}</p>
+                        <p><b> </b> {item.PlanoUp}</p>
+                        <p><b> </b> {item.PlanoPremium}</p>
                     </div>
                 })}
             </li>
