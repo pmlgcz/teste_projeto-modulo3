@@ -3,7 +3,7 @@ import API from "../../axios/config";
 import ListItems from "../../components/ListItems";
 import Section from "../../components/Section";
 import "./Home.css"
-import MaisVistasIMG from '../../images/play.png'
+import MaisVistasIMG from '../../images/cinema.png'
 import LoadingGIF from '../../images/gif-loading.gif'
 
 
