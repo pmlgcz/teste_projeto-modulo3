@@ -31,7 +31,7 @@ export default function NewPost() {
             <form onSubmit={(e)=>createPost(e)}>
                 <div className={styles.formControl}>
                     <label htmlFor="nome">Nome</label>
-                    <input type="text" name="nome" required placeholder="Digite o nome" className={styles.tituloInput} id="nome" onChange={(e) => setTitle(e.target.value)}/>
+                    <input type="text" name="nome" required placeholder="Digite o nome" className={styles.nomeInput} id="nome" onChange={(e) => setTitle(e.target.value)}/>
                 </div>
                 <div className={styles.formControl}>
                     <label htmlFor="ano">Data de nascimento:</label>
